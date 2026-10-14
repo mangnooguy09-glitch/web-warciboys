@@ -17,9 +17,9 @@ int main() {
 
     // Menghubungkan endpoint root ("/") ke file index.html
     svr.Get("/", [](const httplib::Request& req, httplib::Response& res) {
-        std::string htmlContent = readFile("index.html");
+        std::string htmlContent = readFile("warciboys.html"); // <- Diubah ke warciboys.html
         res.set_content(htmlContent, "text/html; charset=utf-8");
-    });
+});
 
     int port = 8080;
     const char* env_port = std::getenv("PORT");
