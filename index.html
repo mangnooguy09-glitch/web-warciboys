@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portofolio Khairul Ramadhan - Mahasiswa Rekayasa Perangkat Lunak, C++ Network Programming, Backend & Web Development.">
+<meta property="og:title" content="Portofolio - Khairul Ramadhan">
+<meta property="og:description" content="Mahasiswa RPL yang antusias belajar backend, C++, jaringan komputer, dan web development.">
+<meta name="theme-color" content="#05070b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🔥</text></svg>">
+<title>Portofolio - Khairul Ramadhan</title>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #05070b;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+    cursor: default;
+}
+
+/* EFEK KURSOR CAHAYA (SPOTLIGHT CHAKRA) */
+.cursor-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(168, 85, 247, 0.06) 50%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: width 0.2s, height 0.2s;
+}
+
+/* BACKGROUND OBITO FULL LAYAR DENGAN ANIMASI KEDIP */
+.global-watermark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+@keyframes eyeGlow {
+    0% { transform: scale(1); filter: blur(6px) brightness(0.7) contrast(1); }
+    50% { transform: scale(1.02); filter: blur(5px) brightness(1.1) contrast(1.2); }
+    100% { transform: scale(1); filter: blur(6px) brightness(0.7) contrast(1); }
+}
+
+.global-watermark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.32;
+    animation: eyeGlow 5s ease-in-out infinite;
+}
+
+/* PARTIKEL DEBU / ABU MELAYANG */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(239, 68, 68, 0.7);
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(105vh) translateX(0); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+}
+
+/* CONTAINER UTAMA DI TENGAH */
+.container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 750px;
+    background: rgba(10, 13, 20, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+    margin-bottom: 70px;
+}
+
+.page-view {
+    display: none;
+    animation: fadeIn 0.35s ease;
+}
+
+.page-view.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ef4444;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+.description {
+    font-size: 15px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.section-subheading {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    color: #a855f7;
+}
+
+.home-content {
+    text-align: center;
+}
+
+/* EFEK KETIK OTOMATIS & GLITCH TEXT */
+.home-title {
+    font-size: 42px;
+    color: #ef4444;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #ef4444;
+    width: 0;
+    animation: typing 3s steps(20, end) forwards, blinkCursor 0.75s step-end infinite, glitchAnim 4s infinite;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent; }
+    50% { border-color: #ef4444; }
+}
+
+@keyframes glitchAnim {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); text-shadow: 2px -2px 0px #00ffff, -2px 2px 0px #ff00ff; }
+    21% { transform: translate(0); text-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+    70% { transform: translate(0); }
+    72% { transform: translate(2px, -2px); text-shadow: -2px 2px 0px #00ffff, 2px -2px 0px #ff00ff; }
+    73% { transform: translate(0); text-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+    100% { transform: translate(0); }
+}
+
+/* ===== TEKS PERAN BERGANTI ===== */
+.role {
+    font-size: 18px;
+    color: #a855f7;
+    margin-bottom: 15px;
+    min-height: 28px;
+    font-weight: 600;
+}
+
+.role::after {
+    content: '|';
+    margin-left: 2px;
+    animation: blinkChar 0.75s step-end infinite;
+}
+
+@keyframes blinkChar {
+    50% { opacity: 0; }
+}
+
+/* ===== STATISTIK ANGKA BERJALAN ===== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.stat-box {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 8px;
+    transition: 0.25s;
+}
+
+.stat-box:hover {
+    border-color: rgba(239, 68, 68, 0.6);
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.2);
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ef4444;
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+/* ===== INFO SERVER (dari /status) ===== */
+.server-info {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 18px;
+    text-align: center;
+}
+
+.server-info .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+    margin-right: 6px;
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+.about-content p {
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ===== TIMELINE ===== */
+.education {
+    border-left: 2px solid #a855f7;
+    padding-left: 22px;
+    margin-top: 20px;
+    margin-left: 6px;
+    text-align: left;
+}
+
+.education-item {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.education-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    background: #ef4444;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.9);
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { box-shadow: 0 0 6px rgba(239, 68, 68, 0.6); }
+    50% { box-shadow: 0 0 16px rgba(239, 68, 68, 1); }
+}
+
+.education-item strong {
+    color: white;
+    font-size: 15px;
+}
+
+.education-item span {
+    display: block;
+    color: #a855f7;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.project-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    text-align: left;
+    transition: 0.25s;
+}
+
+.project-card:hover {
+    border-color: rgba(239, 68, 68, 0.6);
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.2);
+}
+
+.project-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ef4444;
+    margin-bottom: 5px;
+}
+
+.project-desc {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.project-tech {
+    display: inline-block;
+    font-size: 11px;
+    color: #cbd5e1;
+    background: rgba(239, 68, 68, 0.15);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.project-link {
+    display: inline-block;
+    font-size: 11px;
+    color: #a855f7;
+    text-decoration: none;
+    border: 1px solid rgba(168, 85, 247, 0.5);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-left: 6px;
+    transition: 0.2s;
+}
+
+.project-link:hover {
+    background: #a855f7;
+    color: #05070b;
+}
+
+/* ===== SKILLS DENGAN LOGO + BAR ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.skill-box {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 18px 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: #cbd5e1;
+    font-weight: 600;
+    transition: 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: popIn 0.5s ease backwards;
+}
+
+.skill-box:nth-child(2) { animation-delay: 0.08s; }
+.skill-box:nth-child(3) { animation-delay: 0.16s; }
+.skill-box:nth-child(4) { animation-delay: 0.24s; }
+.skill-box:nth-child(5) { animation-delay: 0.32s; }
+.skill-box:nth-child(6) { animation-delay: 0.40s; }
+
+@keyframes popIn {
+    from { opacity: 0; transform: translateY(20px); }
+}
+
+.skill-box:hover {
+    border-color: #a855f7;
+    color: #a855f7;
+    box-shadow: 0 6px 18px rgba(168, 85, 247, 0.25);
+}
+
+.skill-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: 0.25s;
+}
+
+.skill-box:hover .skill-icon {
+    transform: scale(1.12);
+}
+
+.skill-icon.invert {
+    filter: invert(1);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-bar span {
+    display: block;
+    height: 100%;
+    width: var(--level);
+    background: linear-gradient(90deg, #ef4444, #a855f7);
+    border-radius: 10px;
+    animation: fillBar 1.2s ease;
+}
+
+@keyframes fillBar {
+    from { width: 0; }
+}
+
+/* STYLING FORMULIR KONTAK */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.contact-input, .contact-textarea {
+    width: 100%;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 12px 15px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.contact-input:focus, .contact-textarea:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.contact-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-btn {
+    background: #ef4444;
+    color: #05070b;
+    font-weight: 700;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 15px;
+}
+
+.submit-btn:hover {
+    background: #f87171;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+.contact-btn {
+    display: block;
+    background: rgba(30, 41, 59, 0.6);
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: 0.2s;
+}
+
+.contact-btn:hover {
+    background: #ef4444;
+    color: #05070b;
+    border-color: #ef4444;
+    font-weight: 700;
+}
+
+.social-icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: -3px;
+    margin-right: 8px;
+    filter: invert(1);
+    transition: 0.2s;
+}
+
+.contact-btn:hover .social-icon {
+    filter: none;
+}
+
+.floating-dock {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 8px 14px;
+    border-radius: 40px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.dock-item {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 12px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.dock-item svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.dock-item:hover {
+    color: #ef4444;
+}
+
+.dock-item.active {
+    background: #ef4444;
+    color: #05070b;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+/* ===== INTRO SHARINGAN ===== */
+.intro {
+    position: fixed;
+    inset: 0;
+    background: #05070b;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.intro.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.eye {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #ef4444;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.7), inset 0 0 20px rgba(239, 68, 68, 0.5);
+    background: radial-gradient(circle, #05070b 18%, #b91c1c 20%, #ef4444 100%);
+    animation: spinEye 2s linear infinite;
+    position: relative;
+}
+
+.eye::before, .eye::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #05070b;
+    border-radius: 50%;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.eye::after {
+    top: auto;
+    bottom: 12px;
+}
+
+@keyframes spinEye {
+    to { transform: rotate(360deg); }
+}
+
+.intro p {
+    color: #ef4444;
+    letter-spacing: 4px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+    .container { padding: 20px; }
+    .page-title { font-size: 30px; }
+    .home-title { font-size: 34px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .stat-number { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LAYAR INTRO SHARINGAN -->
+<div class="intro" id="intro">
+    <div class="eye"></div>
+    <p>Loading Chakra...</p>
+</div>
+
+<!-- KURSOR CAHAYA SPOTLIGHT -->
+<div class="cursor-light" id="cursorLight"></div>
+
+<div class="bg-glow"></div>
+
+<!-- BACKGROUND OBITO -->
+<div class="global-watermark">
+    <img src="data:image/jpeg;base64,ISI_BASE64_OBITO_KAMU_DI_SINI" alt="Obito Watermark">
+</div>
+
+<!-- PARTIKEL DEBU OTOMATIS -->
+<div class="particles" id="particlesContainer"></div>
+
+<div class="container">
+
+<!-- HOME -->
+<div id="pageHome" class="page-view active">
+    <div class="home-content">
+        <div class="home-title">Hi, I'm Khairul</div>
+        <div class="role" id="roleText"></div>
+        <p class="description">
+            Mahasiswa Rekayasa Perangkat Lunak yang antusias mempelajari backend, pemrograman C++, jaringan komputer, serta pengembangan website.
+        </p>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number"><span class="counter" data-target="3">0</span></div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number"><span class="counter" data-target="5">0</span>+</div>
+                <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
+                <div class="stat-label">Semangat Belajar</div>
+            </div>
+        </div>
+
+        <div class="section-subheading">Quick Overview</div>
+        <div class="project-card">
+            <div class="project-title">Backend & Network Engineering</div>
+            <div class="project-desc">
+                Membuat server lokal menggunakan C++ Winsock dan memahami bagaimana komunikasi antara server dan client bekerja.
+            </div>
+        </div>
+
+        <!-- Info live dari route /status milik server C++ -->
+        <div class="server-info" id="serverInfo"></div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div id="pageAbout" class="page-view">
+    <div class="about-content">
+        <div class="page-title">About</div>
+        <p>
+            Saya adalah mahasiswa Rekayasa Perangkat Lunak yang tertarik dengan dunia pemrograman dan teknologi. Saya sedang mempelajari berbagai hal seperti C++, Python, HTML, CSS, jaringan komputer, dan pengembangan sistem.
+        </p>
+        <p>
+            Saya juga suka mencoba membuat proyek sendiri untuk memahami bagaimana sebuah sistem bekerja, bukan hanya mempelajari teorinya.
+        </p>
+        <div class="section-subheading">Education & Experience</div>
+        <div class="education">
+            <div class="education-item">
+                <strong>Rekayasa Perangkat Lunak</strong>
+                <span>Mahasiswa</span>
+            </div>
+            <div class="education-item">
+                <strong>C++ & Network Programming</strong>
+                <span>Project Development</span>
+            </div>
+            <div class="education-item">
+                <strong>Web Development</strong>
+                <span>HTML & CSS</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="pageProjects" class="page-view">
+    <div class="page-title">Projects</div>
+    <p class="description">Beberapa proyek yang sedang saya pelajari dan kembangkan.</p>
+
+    <div class="project-card">
+        <div class="project-title">C++ Winsock Web Server</div>
+        <div class="project-desc">Server web multi-thread berbasis Windows Socket API dengan routing sederhana (/ dan /status) yang digunakan untuk menjalankan portofolio ini.</div>
+        <div class="project-tech">C++ / Winsock2</div>
+        <a class="project-link" href="/status" target="_blank">Live /status</a>
+        <a class="project-link" href="https://github.com/USERNAME_GITHUB_KAMU" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+        <div class="project-title">Python Turtle</div>
+        <div class="project-desc">Membuat animasi dan visualisasi sederhana menggunakan Python Turtle.</div>
+        <div class="project-tech">Python</div>
+        <a class="project-link" href="https://github.com/USERNAME_GITHUB_KAMU" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+        <div class="project-title">System Shell & CLI</div>
+        <div class="project-desc">Mempelajari pembuatan program berbasis command line menggunakan C++.</div>
+        <div class="project-tech">C++</div>
+        <a class="project-link" href="https://github.com/USERNAME_GITHUB_KAMU" target="_blank">View on GitHub</a>
+    </div>
+</div>
+
+<!-- SKILLS -->
+<div id="pageSkills" class="page-view">
+    <div class="page-title">Skills</div>
+    <p class="description">Beberapa teknologi yang sedang saya pelajari.</p>
+    <div class="skills-grid">
+
+        <div class="skill-box">
+            <div class="skill-icons">
+                <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+            </div>
+            C++ Programming
+            <div class="skill-bar"><span style="--level:75%"></span></div>
+        </div>
+
+        <div class="skill-box">
+            <div class="skill-icons">
+                <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            </div>
+            Python
+            <div class="skill-bar"><span style="--level:60%"></span></div>
+        </div>
+
+        <div class="skill-box">
+            <div class="skill-icons">
+                <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+            </div>
+            HTML & CSS
+            <div class="skill-bar"><span style="--level:80%"></span></div>
+        </div>
+
+        <div class="skill-box">
+            <div class="skill-icons">
+                <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Winsock">
+            </div>
+            Winsock Networking
+            <div class="skill-bar"><span style="--level:60%"></span></div>
+        </div>
+
+        <div class="skill-box">
+            <div class="skill-icons">
+                <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                <img class="skill-icon invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+            </div>
+            Git & GitHub
+            <div class="skill-bar"><span style="--level:65%"></span></div>
+        </div>
+
+        <div class="skill-box">
+            <div class="skill-icons">
+                <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+                <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-original.svg" alt="Ubuntu">
+            </div>
+            Linux / Ubuntu
+            <div class="skill-bar"><span style="--level:55%"></span></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div id="pageContact" class="page-view">
+    <div class="page-title">Contact Me</div>
+    <p class="description">Kirimkan pesan langsung melalui formulir di bawah atau terhubung lewat sosial media.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/myekwozk" method="POST">
+        <div class="form-row">
+            <input type="text" name="name" class="contact-input" placeholder="Your name" required>
+            <input type="email" name="email" class="contact-input" placeholder="Your email" required>
+        </div>
+        <textarea name="message" class="contact-textarea" placeholder="Your message" required></textarea>
+        <button type="submit" class="submit-btn">Send</button>
+    </form>
+
+    <div class="section-subheading" style="margin-top: 15px;">Social Links</div>
+    <a href="https://instagram.com/_rlkh.aii" target="_blank" class="contact-btn">
+        <img class="social-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/instagram.svg" alt=""> Instagram — @_rlkh.aii
+    </a>
+    <a href="https://tiktok.com/@.rullrmdhnn" target="_blank" class="contact-btn">
+        <img class="social-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/tiktok.svg" alt=""> TikTok — @.rullrmdhnn
+    </a>
+    <a href="https://open.spotify.com/playlist/5YncU21OoXcG06RkrhdIWm" target="_blank" class="contact-btn">
+        <img class="social-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/spotify.svg" alt=""> Spotify Playlist
+    </a>
+</div>
+
+</div>
+
+<!-- NAVIGATION -->
+<nav class="floating-dock">
+<button class="dock-item active" onclick="switchPage('home', this)">
+<svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+Home
+</button>
+
+<button class="dock-item" onclick="switchPage('about', this)">
+<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+About
+</button>
+
+<button class="dock-item" onclick="switchPage('projects', this)">
+<svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+Projects
+</button>
+
+<button class="dock-item" onclick="switchPage('skills', this)">
+<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+Skills
+</button>
+
+<button class="dock-item" onclick="switchPage('contact', this)">
+<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+Contact
+</button>
+</nav>
+
+<script>
+// Efek Kursor Cahaya (Spotlight)
+const cursorLight = document.getElementById('cursorLight');
+window.addEventListener('mousemove', (e) => {
+    cursorLight.style.left = e.clientX + 'px';
+    cursorLight.style.top = e.clientY + 'px';
+});
+
+// Partikel debu/abu
+const container = document.getElementById('particlesContainer');
+for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    const size = Math.random() * 4 + 2;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+    particle.style.left = Math.random() * 100 + 'vw';
+    particle.style.animationDuration = (Math.random() * 5 + 4) + 's';
+    particle.style.animationDelay = (Math.random() * 5) + 's';
+    container.appendChild(particle);
+}
+
+// Pindah halaman
+function switchPage(pageId, element) {
+    const pages = document.querySelectorAll('.page-view');
+    const dockItems = document.querySelectorAll('.dock-item');
+
+    pages.forEach(page => page.classList.remove('active'));
+    dockItems.forEach(button => button.classList.remove('active'));
+
+    document.getElementById('page' + pageId.charAt(0).toUpperCase() + pageId.slice(1)).classList.add('active');
+    element.classList.add('active');
+
+    if (pageId === 'home') runCounters();
+}
+
+// Efek 3D tilt pada kartu
+document.querySelectorAll('.project-card, .skill-box').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'perspective(600px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg) translateY(-3px)';
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+// Teks peran berganti-ganti
+const roles = ['Software Engineering Student', 'C++ Network Programmer', 'Backend Enthusiast', 'Web Developer'];
+let roleIdx = 0, charIdx = 0, deleting = false;
+const roleEl = document.getElementById('roleText');
+
+function typeRole() {
+    const current = roles[roleIdx];
+    roleEl.textContent = current.substring(0, charIdx);
+
+    if (!deleting && charIdx < current.length) {
+        charIdx++;
+        setTimeout(typeRole, 80);
+    } else if (!deleting) {
+        deleting = true;
+        setTimeout(typeRole, 1500);
+    } else if (charIdx > 0) {
+        charIdx--;
+        setTimeout(typeRole, 40);
+    } else {
+        deleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        setTimeout(typeRole, 300);
+    }
+}
+setTimeout(typeRole, 3200);
+
+// Statistik angka berjalan
+function runCounters() {
+    document.querySelectorAll('.counter').forEach(el => {
+        const target = parseInt(el.getAttribute('data-target'));
+        const duration = 1500;
+        const start = performance.now();
+
+        function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            el.textContent = Math.floor(progress * target);
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    });
+}
+
+// Ambil data live dari route /status (server C++)
+function loadServerStatus() {
+    fetch('/status')
+        .then(r => r.json())
+        .then(d => {
+            const minutes = Math.floor(d.uptime_seconds / 60);
+            document.getElementById('serverInfo').innerHTML =
+                '<span class="dot"></span>Server online ' + minutes + ' menit · Dilihat ' + d.page_views + ' kali';
+        })
+        .catch(() => {});
+}
+
+// Intro Sharingan hilang setelah loading
+window.addEventListener('load', () => {
+    loadServerStatus();
+    setTimeout(() => {
+        document.getElementById('intro').classList.add('hide');
+        runCounters();
+    }, 1500);
+});
+</script>
+
+</body>
+</html>
