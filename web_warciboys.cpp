@@ -16,7 +16,7 @@ int main() {
     httplib::Server svr;
 
     // Menghubungkan endpoint root ("/") ke file index.html
-    svr.get("/", [](const httplib::Request& req, httplib::Response& res) {
+    svr.Get("/", [](const httplib::Request& req, httplib::Response& res) {
         std::string htmlContent = readFile("index.html");
         res.set_content(htmlContent, "text/html; charset=utf-8");
     });
