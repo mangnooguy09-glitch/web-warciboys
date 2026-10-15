@@ -15,6 +15,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #0b0c10;
@@ -32,7 +36,6 @@
             flex-direction: column;
             justify-content: space-between;
             padding: 2rem 5%;
-            /* GANTI URL DI BAWAH INI UNTUK MERUBAH BACKGROUND */
             background: linear-gradient(180deg, rgba(11, 12, 16, 0.75) 0%, rgba(11, 12, 16, 0.85) 60%, #0b0c10 100%),
                         url('https://i.ibb.co/WvS7T38p/WhatsApp-Image-2026-10-15-at-13-42-21.jpg') center/cover no-repeat;
         }
@@ -174,6 +177,125 @@
             z-index: 10;
         }
 
+        /* Section Layouts General */
+        section.content-section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Section Anggota Grid */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .member-card {
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .member-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #d4af37;
+        }
+
+        .member-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .member-card p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Section Foto Bersama Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            background: #14161d;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Section Penutup */
+        .penutup-box {
+            background: linear-gradient(135deg, #14161d 0%, #1a1d27 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .penutup-box p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .penutup-box h4 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            color: #d4af37;
+        }
+
         /* Mobile Responsive adjustment */
         @media (max-width: 768px) {
             .nav-links {
@@ -192,7 +314,8 @@
 </head>
 <body>
 
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero" id="beranda">
         <!-- Navigation Bar -->
         <nav>
             <div class="logo">
@@ -200,11 +323,10 @@
                 WARCI BOYS
             </div>
             <ul class="nav-links">
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#">Anggota</a></li>
-                <li><a href="#">Foto Bersama</a></li>
-                <li><a href="#">Tenda</a></li>
-                <li><a href="#">Penutup</a></li>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#anggota">Anggota</a></li>
+                <li><a href="#foto-bersama">Foto Bersama</a></li>
+                <li><a href="#penutup">Penutup</a></li>
             </ul>
         </nav>
 
@@ -218,8 +340,8 @@
                 Waktu mungkin udah bawa kita ke jalan masing-masing, tapi kenangan dan kehangatannya bakal selalu nemenin di sini.
             </p>
             <div class="btn-group">
-                <a href="#" class="btn-primary">Lihat Anggota &rarr;</a>
-                <a href="#" class="btn-secondary">Foto Bersama</a>
+                <a href="#anggota" class="btn-primary">Lihat Anggota &rarr;</a>
+                <a href="#foto-bersama" class="btn-secondary">Foto Bersama</a>
             </div>
         </div>
 
@@ -228,6 +350,95 @@
             <span>10 ORANG</span>
             <span>WARCI BOYS</span>
             <span>BANYAK CERITA</span>
+        </div>
+    </section>
+
+    <!-- SECTION ANGGOTA -->
+    <section class="content-section" id="anggota">
+        <div class="section-header">
+            <h2>ANGGOTA WARCI BOYS</h2>
+            <p>10 Jiwa, Banyak Cerita & Kehangatan Kebersamaan</p>
+        </div>
+        <div class="members-grid">
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 1</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 2</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 3</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 4</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 5</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 6</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 7</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 8</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 9</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
+                <h3>Anggota 10</h3>
+                <p>Warci Boys Crew</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FOTO BERSAMA -->
+    <section class="content-section" id="foto-bersama">
+        <div class="section-header">
+            <h2>FOTO BERSAMA</h2>
+            <p>Galeri Momen Kebersamaan Di Pantai & Tempat Lainnya</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/WvS7T38p/WhatsApp-Image-2026-10-15-at-13-42-21.jpg" alt="Foto Kebersamaan Pantai">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Momen Bersama">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=800&q=80" alt="Momen Bersama 2">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PENUTUP -->
+    <section class="content-section" id="penutup">
+        <div class="penutup-box">
+            <p>
+                "Terima kasih untuk setiap tawa, perjalanan, dan cerita yang pernah kita ukir bersama. Apapun jalan yang kita tempuh masing-masing ke depan, rumah ini selalu terbuka untuk tempat kita kembali pulang."
+            </p>
+            <h4>— WARCI BOYS FOREVER —</h4>
         </div>
     </section>
 
