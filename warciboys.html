@@ -275,12 +275,12 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Section Foto Bersama */
+        /* Section Foto Bersama - Semua Kartu Sama Tinggi & Presisi */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.8rem;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            align-items: stretch;
         }
 
         .gallery-item {
@@ -290,6 +290,7 @@
             background: #14161d;
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 10px;
+            aspect-ratio: 3 / 4;
             transition: transform 0.3s, border-color 0.3s;
         }
 
@@ -300,21 +301,16 @@
 
         .gallery-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
             border-radius: 10px;
-            object-fit: contain;
-        }
-
-        /* Khusus Foto Pantai: Potong langit atas & fokus bagian bawah */
-        .gallery-item.crop-bottom {
-            height: 280px;
-        }
-
-        .gallery-item.crop-bottom img {
-            height: 100%;
             object-fit: cover;
-            object-position: bottom;
+            object-position: center;
+        }
+
+        /* Khusus Foto Pantai: Pas dengan kotak lain, potong langit atas, ambil bagian bawah */
+        .gallery-item.crop-bottom img {
+            object-position: center 85%;
         }
 
         /* Section Penutup */
@@ -482,7 +478,7 @@
             <div class="gallery-item">
                 <img src="https://i.ibb.co.com/8LLS1LbF/Whats-App-Image-2026-10-15-at-18-36-40.jpg" alt="Foto Jas Formal">
             </div>
-            <!-- Foto 2: Kebersamaan Pantai (Di-crop bagian atas langitnya) -->
+            <!-- Foto 2: Kebersamaan Pantai (Sama tinggi dengan kartu lain, langit atas ter-crop) -->
             <div class="gallery-item crop-bottom">
                 <img src="https://i.ibb.co.com/8D687wdr/Whats-App-Image-2026-10-15-at-19-04-49.jpg" alt="Foto Pantai Kebersamaan">
             </div>
