@@ -400,65 +400,66 @@
             color: #ffffff;
         }
 
+        /* BENTO GRID FOTO BERSAMA (ANTI-CROP / UTUH) */
         .gallery-bento {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-auto-rows: 260px;
-    gap: 1.2rem;
-}
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            align-items: start;
+        }
 
-.gallery-item {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #14161d;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-}
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
 
-.gallery-item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(212, 175, 55, 0.5);
-    box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.2);
-}
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.2);
+        }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.5s ease;
-}
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            max-height: 520px;
+            display: block;
+            border-radius: 10px;
+            object-fit: contain; /* Memastikan foto tampil utuh tanpa terpotong */
+            background: #0b0c10;
+            transition: transform 0.5s ease;
+        }
 
-.gallery-item:hover img {
-    transform: scale(1.03);
-}
+        .gallery-item:hover img {
+            transform: scale(1.02);
+        }
 
-/* Bento Grid Specific Spans (Desktop) */
-@media (min-width: 769px) {
-    .gallery-item.main-bento {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-    .gallery-item.wide-bento {
-        grid-column: span 2;
-    }
-}
+        /* Bento Grid Specific Spans (Desktop) */
+        @media (min-width: 769px) {
+            .gallery-item.main-bento {
+                grid-column: span 2;
+            }
+            .gallery-item.wide-bento {
+                grid-column: span 2;
+            }
+        }
 
-/* Penyesuaian Rapi di HP */
-@media (max-width: 768px) {
-    .gallery-bento {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 280px;
-    }
-    .gallery-item.main-bento,
-    .gallery-item.wide-bento {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-}
+        /* Penyesuaian Rapi di HP */
+        @media (max-width: 768px) {
+            .gallery-bento {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item.main-bento,
+            .gallery-item.wide-bento {
+                grid-column: span 1;
+            }
+        }
 
         /* VIRTUAL GUESTBOOK (BUKU TAMU DIGITAL) */
         .guestbook-box {
@@ -639,10 +640,6 @@
                 flex-direction: column;
                 gap: 0.5rem;
                 text-align: center;
-            }
-            .gallery-bento {
-                grid-template-columns: 1fr;
-                grid-auto-rows: 250px;
             }
         }
     </style>
