@@ -21,16 +21,21 @@
             scroll-behavior: smooth;
         }
 
+        ::selection {
+            background: #d4af37;
+            color: #0b0c10;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #0b0c10;
             color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
-            padding-bottom: 60px; /* Jarak ruang bawah agar tidak tertutup mobile navbar */
+            padding-bottom: 60px; /* Space for mobile nav */
         }
 
-        /* 1. CINEMATIC SPLASH SCREEN */
+        /* CINEMATIC SPLASH SCREEN */
         #preloader {
             position: fixed;
             top: 0;
@@ -80,7 +85,7 @@
             visibility: hidden;
         }
 
-        /* Hero Container with Dark Overlay Background */
+        /* Hero Container */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -177,7 +182,7 @@
             box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
         }
 
-        /* 2. FLOATING MOBILE BOTTOM NAVIGATION */
+        /* FLOATING MOBILE BOTTOM NAVIGATION */
         .mobile-bottom-nav {
             display: none;
             position: fixed;
@@ -377,21 +382,30 @@
         }
 
         .member-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
         }
 
-        .member-card p {
+        .member-ig {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
             font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: #d4af37;
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        /* Section Foto Bersama */
-        .gallery-grid {
+        .member-ig:hover {
+            color: #ffffff;
+        }
+
+        /* BENTO GRID FOTO BERSAMA */
+        .gallery-bento {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            align-items: stretch;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 230px;
+            gap: 1.2rem;
         }
 
         .gallery-item {
@@ -400,8 +414,7 @@
             overflow: hidden;
             background: #14161d;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            aspect-ratio: 3 / 4;
+            padding: 8px;
             cursor: pointer;
             transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
@@ -426,8 +439,15 @@
             transform: scale(1.03);
         }
 
-        .gallery-item.crop-bottom img {
-            object-position: center 85%;
+        /* Bento Grid Specific Spans (Desktop) */
+        @media (min-width: 769px) {
+            .gallery-item.main-bento {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+            .gallery-item.wide-bento {
+                grid-column: span 2;
+            }
         }
 
         /* VIRTUAL GUESTBOOK (BUKU TAMU DIGITAL) */
@@ -610,15 +630,16 @@
                 gap: 0.5rem;
                 text-align: center;
             }
-            .gallery-grid {
+            .gallery-bento {
                 grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. CINEMATIC SPLASH SCREEN -->
+    <!-- CINEMATIC SPLASH SCREEN -->
     <div id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">W</div>
@@ -680,84 +701,85 @@
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Khairul Ramadhan</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/khairul_rmdhn" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @khairul_rmdhn</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Reyhan Rizky Ramadhan</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/reyhanrr" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @reyhanrr</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Fajar Maulana</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/fajarmlna" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @fajarmlna</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Teguh Agung Saputra</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/teguhagungs" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @teguhagungs</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Chiko</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/chikoo" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @chikoo</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Muhammad Kurniawan</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/kurniawan_m" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @kurniawan_m</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Bayu Syahbil Rohmat</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/bayusyahbil" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @bayusyahbil</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Muhammad Ridho Nugroho</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/m.ridhonugroho" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @m.ridhonugroho</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Kevin Ridho Peter Leleuly</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/kevinleleuly" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @kevinleleuly</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Layang Jamus Kalimasada</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/layangjamus" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @layangjamus</a>
             </div>
             <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>KING NOPAL</h3>
-                <p>Warci Boys Crew</p>
+                <a href="https://instagram.com/kingnopal" target="_blank" class="member-ig"><i class="fa-brands fa-instagram"></i> @kingnopal</a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION FOTO BERSAMA -->
+    <!-- SECTION FOTO BERSAMA (BENTO GRID LAYOUT) -->
     <section class="content-section" id="foto-bersama">
         <div class="section-header reveal">
             <h2>FOTO BERSAMA</h2>
+            <p>Momen & Kenangan Terindah WARCI BOYS</p>
         </div>
-        <div class="gallery-grid">
-            <!-- Foto 1: Jas Formal / Sekolah -->
-            <div class="gallery-item reveal">
-                <img src="https://i.ibb.co.com/8LLS1LbF/Whats-App-Image-2026-10-15-at-18-36-40.jpg" alt="Foto Jas Formal">
+        <div class="gallery-bento">
+            <!-- Foto Utama (Bento Big Span): Jas Formal -->
+            <div class="gallery-item main-bento reveal">
+                <img src="https://i.ibb.co.com/8LLS1LbF/Whats-App-Image-2026-10-15-at-18-36-40.jpg" alt="Foto Jas Formal (Utama)">
             </div>
             <!-- Foto 2: Kebersamaan Pantai -->
-            <div class="gallery-item crop-bottom reveal">
+            <div class="gallery-item reveal">
                 <img src="https://i.ibb.co.com/8D687wdr/Whats-App-Image-2026-10-15-at-19-04-49.jpg" alt="Foto Pantai Kebersamaan">
             </div>
             <!-- Foto 3: Kostum Malam -->
             <div class="gallery-item reveal">
                 <img src="https://i.ibb.co.com/JFmm0zyy/Whats-App-Image-2026-10-15-at-18-37-13.jpg" alt="Foto Kostum Malam">
             </div>
-            <!-- Foto 4: Citumang Rafting Gerbang -->
-            <div class="gallery-item reveal">
+            <!-- Foto 4: Citumang Rafting Gerbang (Bento Wide) -->
+            <div class="gallery-item wide-bento reveal">
                 <img src="https://i.ibb.co.com/VpvQxyYL/Whats-App-Image-2026-10-15-at-18-38-34.jpg" alt="Citumang Rafting">
             </div>
-            <!-- Foto 5: Citumang Pose Body Rafting -->
+            <!-- Foto 5: Citumang Body Rafting -->
             <div class="gallery-item reveal">
                 <img src="https://i.ibb.co.com/hJjx41w4/Whats-App-Image-2026-10-15-at-18-38-40.jpg" alt="Citumang Body Rafting">
             </div>
@@ -801,7 +823,7 @@
         </div>
     </section>
 
-    <!-- 2. FLOATING MOBILE BOTTOM NAVIGATION -->
+    <!-- FLOATING MOBILE BOTTOM NAVIGATION -->
     <div class="mobile-bottom-nav">
         <ul>
             <li><a href="#beranda" class="active"><i class="fa-solid fa-house"></i> Beranda</a></li>
@@ -819,15 +841,15 @@
 
     <!-- JAVASCRIPT SCRIPTS -->
     <script>
-        // 1. Cinematic Preloader Splash Screen Handler
+        // Preloader Splash Screen
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
                 preloader.classList.add('preloader-hidden');
-            }, 1000); // Splash screen aktif selama 1 detik
+            }, 1000);
         });
 
-        // 2. Scroll Reveal Animation
+        // Scroll Reveal Animation
         function revealOnScroll() {
             const reveals = document.querySelectorAll('.reveal');
             const windowHeight = window.innerHeight;
@@ -845,7 +867,7 @@
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
-        // 3. Lightbox Pop-up Foto
+        // Lightbox Pop-up Foto
         const lightboxModal = document.getElementById('lightboxModal');
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxClose = document.getElementById('lightboxClose');
@@ -868,7 +890,7 @@
             }
         });
 
-        // 4. Guestbook Form Handler
+        // Guestbook Form Handler
         const guestbookForm = document.getElementById('guestbookForm');
         const messagesContainer = document.getElementById('messagesContainer');
 
