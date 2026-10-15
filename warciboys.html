@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -71,6 +73,7 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 1.8rem;
             list-style: none;
         }
@@ -85,6 +88,32 @@
 
         .nav-links a:hover {
             color: #ffffff;
+        }
+
+        /* Instagram Link Button */
+        .ig-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .ig-link i {
+            font-size: 1.1rem;
+            color: #e1306c;
+        }
+
+        .ig-link:hover {
+            background: rgba(225, 48, 108, 0.2);
+            border-color: #e1306c;
+            transform: translateY(-2px);
         }
 
         /* Hero Content */
@@ -299,6 +328,7 @@
             font-family: 'Cinzel', serif;
             letter-spacing: 2px;
             color: #d4af37;
+            margin-bottom: 1.5rem;
         }
 
         /* Mobile Responsive Adjustment */
@@ -335,6 +365,11 @@
                 <li><a href="#anggota">Anggota</a></li>
                 <li><a href="#foto-bersama">Foto Bersama</a></li>
                 <li><a href="#penutup">Penutup</a></li>
+                <li>
+                    <a href="https://instagram.com/wcg2526" target="_blank" class="ig-link">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </li>
             </ul>
         </nav>
 
@@ -368,57 +403,57 @@
             <p>11 Jiwa, Banyak Cerita & Kehangatan Kebersamaan</p>
         </div>
         <div class="members-grid">
-            <div class="Khairul Ramadhan">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Khairul Ramadhan</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="Reyhan Rizky Ramadhan">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Reyhan Rizky Ramadhan</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="Fajar Maulana">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Fajar Maulana</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="Teguh Agung Saputra">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Teguh Agung Saputra</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="Chiko">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Chiko</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="Muhammad Kurniawan">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Muhammad Kurniawan</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="Bayu Syahbil Rohmat">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Bayu Syahbil Rohmat</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="Muhammad Ridho Nugroho">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Muhammad Ridho Nugroho</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="Kevin Ridho Peter Leleuly">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>Kevin Ridho Peter Leleuly</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="">
-                <div class="Layang Jamus Kalimasada">WB</div>
+            <div class="member-card">
+                <div class="member-avatar">WB</div>
                 <h3>Layang Jamus Kalimasada</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="KING NOPAL">
+            <div class="member-card">
                 <div class="member-avatar">WB</div>
                 <h3>KING NOPAL</h3>
                 <p>Warci Boys Crew</p>
@@ -466,6 +501,9 @@
                 "Terima kasih untuk setiap tawa, perjalanan, dan cerita yang pernah kita ukir bersama. Apapun jalan yang kita tempuh masing-masing ke depan, rumah ini selalu terbuka untuk tempat kita kembali pulang."
             </p>
             <h4>— WARCI BOYS FOREVER —</h4>
+            <a href="https://instagram.com/wcg2526" target="_blank" class="ig-link">
+                <i class="fa-brands fa-instagram"></i> Follow @wcg2526
+            </a>
         </div>
     </section>
 
