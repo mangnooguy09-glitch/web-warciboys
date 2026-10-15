@@ -42,13 +42,22 @@
                         url('https://i.ibb.co/WvS7T38p/WhatsApp-Image-2026-10-15-at-13-42-21.jpg') center/cover no-repeat;
         }
 
-        /* Navigation Header */
+        /* Navigation Header with Glassmorphism */
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            z-index: 10;
+            padding: 1.2rem 5%;
+            z-index: 100;
+            background: rgba(11, 12, 16, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .logo {
@@ -114,12 +123,13 @@
             background: rgba(225, 48, 108, 0.2);
             border-color: #e1306c;
             transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
         }
 
         /* Hero Content */
         .hero-content {
             max-width: 650px;
-            margin-top: auto;
+            margin-top: 120px;
             margin-bottom: auto;
             padding: 2rem 0;
             z-index: 10;
@@ -208,7 +218,7 @@
 
         /* Section Layouts General */
         section.content-section {
-            padding: 5rem 5%;
+            padding: 6rem 5% 4rem 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -243,12 +253,13 @@
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
 
         .member-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.15);
         }
 
         .member-avatar {
@@ -263,6 +274,7 @@
             font-weight: 600;
             font-size: 1.2rem;
             color: #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         .member-card h3 {
@@ -275,7 +287,7 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Section Foto Bersama - Semua Kartu Sama Tinggi & Presisi */
+        /* Section Foto Bersama */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -291,12 +303,14 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 10px;
             aspect-ratio: 3 / 4;
-            transition: transform 0.3s, border-color 0.3s;
+            cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
 
         .gallery-item:hover {
             transform: translateY(-4px);
             border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.2);
         }
 
         .gallery-item img {
@@ -306,9 +320,14 @@
             border-radius: 10px;
             object-fit: cover;
             object-position: center;
+            transition: transform 0.5s ease;
         }
 
-        /* Khusus Foto Pantai: Pas dengan kotak lain, potong langit atas, ambil bagian bawah */
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Khusus Foto Pantai */
         .gallery-item.crop-bottom img {
             object-position: center 85%;
         }
@@ -336,6 +355,61 @@
             letter-spacing: 2px;
             color: #d4af37;
             margin-bottom: 1.5rem;
+        }
+
+        /* --- FITUR NOMOR 2: ANIMASI SCROLL REVEAL (FADE-IN) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- FITUR NOMOR 4: LIGHTBOX POP-UP FOTO --- */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: #d4af37;
         }
 
         /* Mobile Responsive Adjustment */
@@ -405,62 +479,62 @@
 
     <!-- SECTION ANGGOTA -->
     <section class="content-section" id="anggota">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>ANGGOTA WARCI BOYS</h2>
             <p>11 Jiwa, Banyak Cerita & Kehangatan Kebersamaan</p>
         </div>
         <div class="members-grid">
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Khairul Ramadhan</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Reyhan Rizky Ramadhan</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Fajar Maulana</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Teguh Agung Saputra</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Chiko</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Muhammad Kurniawan</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Bayu Syahbil Rohmat</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Muhammad Ridho Nugroho</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Kevin Ridho Peter Leleuly</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>Layang Jamus Kalimasada</h3>
                 <p>Warci Boys Crew</p>
             </div>
-            <div class="member-card">
+            <div class="member-card reveal">
                 <div class="member-avatar">WB</div>
                 <h3>KING NOPAL</h3>
                 <p>Warci Boys Crew</p>
@@ -470,39 +544,39 @@
 
     <!-- SECTION FOTO BERSAMA -->
     <section class="content-section" id="foto-bersama">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>FOTO BERSAMA</h2>
         </div>
         <div class="gallery-grid">
             <!-- Foto 1: Jas Formal / Sekolah -->
-            <div class="gallery-item">
+            <div class="gallery-item reveal">
                 <img src="https://i.ibb.co.com/8LLS1LbF/Whats-App-Image-2026-10-15-at-18-36-40.jpg" alt="Foto Jas Formal">
             </div>
-            <!-- Foto 2: Kebersamaan Pantai (Sama tinggi dengan kartu lain, langit atas ter-crop) -->
-            <div class="gallery-item crop-bottom">
+            <!-- Foto 2: Kebersamaan Pantai -->
+            <div class="gallery-item crop-bottom reveal">
                 <img src="https://i.ibb.co.com/8D687wdr/Whats-App-Image-2026-10-15-at-19-04-49.jpg" alt="Foto Pantai Kebersamaan">
             </div>
             <!-- Foto 3: Kostum Malam -->
-            <div class="gallery-item">
+            <div class="gallery-item reveal">
                 <img src="https://i.ibb.co.com/JFmm0zyy/Whats-App-Image-2026-10-15-at-18-37-13.jpg" alt="Foto Kostum Malam">
             </div>
             <!-- Foto 4: Citumang Rafting Gerbang -->
-            <div class="gallery-item">
+            <div class="gallery-item reveal">
                 <img src="https://i.ibb.co.com/VpvQxyYL/Whats-App-Image-2026-10-15-at-18-38-34.jpg" alt="Citumang Rafting">
             </div>
             <!-- Foto 5: Citumang Pose Body Rafting -->
-            <div class="gallery-item">
+            <div class="gallery-item reveal">
                 <img src="https://i.ibb.co.com/hJjx41w4/Whats-App-Image-2026-10-15-at-18-38-40.jpg" alt="Citumang Body Rafting">
             </div>
             <!-- Foto 6: Eltern -->
-            <div class="gallery-item">
+            <div class="gallery-item reveal">
                 <img src="https://i.ibb.co.com/cSGvjM8M/Whats-App-Image-2026-10-15-at-19-43-23.jpg" alt="Eltern">
             </div>
         </div>
     </section>
 
     <!-- SECTION PENUTUP -->
-    <section class="content-section" id="penutup">
+    <section class="content-section reveal" id="penutup">
         <div class="penutup-box">
             <p>
                 "Terima kasih untuk setiap tawa, perjalanan, dan cerita yang pernah kita ukir bersama. Apapun jalan yang kita tempuh masing-masing ke depan, rumah ini selalu terbuka untuk tempat kita kembali pulang."
@@ -513,6 +587,56 @@
             </a>
         </div>
     </section>
+
+    <!-- LIGHTBOX MODAL POPUP -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img id="lightboxImg" src="" alt="Zoomed Photo">
+    </div>
+
+    <!-- JAVASCRIPT ANIMASI SCROLL & LIGHTBOX -->
+    <script>
+        // 1. Script Animasi Scroll Reveal
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 100;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // 2. Script Lightbox Pop-up Foto Galeri
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+
+        galleryItems.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxModal.classList.add('active');
+                lightboxImg.src = img.src;
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightboxModal.classList.remove('active');
+        });
+
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightboxModal.classList.remove('active');
+            }
+        });
+    </script>
 
 </body>
 </html>
