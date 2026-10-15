@@ -196,6 +196,11 @@
             margin-bottom: 0.5rem;
         }
 
+        .section-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
         /* Section Anggota Grid */
         .members-grid {
             display: grid;
@@ -241,30 +246,44 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Section Foto Bersama Grid */
+        /* Section Foto Bersama - Tampilan Rapi & Simetris */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
         }
 
         .gallery-item {
             position: relative;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            height: 280px;
+            height: 350px;
             background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s;
+            object-position: center 25%;
+            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
+        }
+
+        /* Foto Pertama (Pantai) Sebagai Hero Highlight Utama */
+        .gallery-item.featured {
+            grid-column: span 2;
+            height: 450px;
         }
 
         /* Section Penutup */
@@ -291,7 +310,7 @@
             color: #d4af37;
         }
 
-        /* Mobile Responsive adjustment */
+        /* Mobile Responsive Adjustment */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -303,6 +322,13 @@
                 flex-direction: column;
                 gap: 0.5rem;
                 text-align: center;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item, .gallery-item.featured {
+                grid-column: span 1;
+                height: 280px;
             }
         }
     </style>
@@ -419,25 +445,25 @@
             <h2>FOTO BERSAMA</h2>
         </div>
         <div class="gallery-grid">
-            <!-- Foto 1 (Pantai) -->
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/WvS7T38p/WhatsApp-Image-2026-10-15-at-13-42-21.jpg" alt="Foto Pantai">
+            <!-- Foto 1: Kebersamaan Pantai (Highlight Atas) -->
+            <div class="gallery-item featured">
+                <img src="https://i.ibb.co/WvS7T38p/WhatsApp-Image-2026-10-15-at-13-42-21.jpg" alt="Foto Pantai Kebersamaan">
             </div>
-            <!-- Foto 2 (Jas Sekolah / Jas Hitam) -->
+            <!-- Foto 2: Jas Formal / Sekolah -->
             <div class="gallery-item">
-                <img src="https://i.ibb.co.com/8LLS1LbF/Whats-App-Image-2026-10-15-at-18-36-40.jpg" alt="Foto Jas Hitam">
+                <img src="https://i.ibb.co/C31b8Rsz/WhatsApp-Image-2026-10-15-at-18-38-39.jpg" alt="Foto Jas Formal">
             </div>
-            <!-- Foto 3 (Kostum / Horor / Malam) -->
+            <!-- Foto 3: Kostum Malam -->
             <div class="gallery-item">
-                <img src="https://i.ibb.co.com/JFmm0zyy/Whats-App-Image-2026-10-15-at-18-37-13.jpg" alt="Foto Kostum Malam">
+                <img src="https://i.ibb.co/Q3qKk3K/WhatsApp-Image-2026-10-15-at-18-38-40-1.jpg" alt="Foto Kostum Malam">
             </div>
-            <!-- Foto 4 (Citumang Gerbang) -->
+            <!-- Foto 4: Citumang Rafting Gerbang -->
             <div class="gallery-item">
-                <img src="https://i.ibb.co.com/VpvQxyYL/Whats-App-Image-2026-10-15-at-18-38-34.jpg" alt="Citumang Gerbang">
+                <img src="https://i.ibb.co/RkTfBw9z/WhatsApp-Image-2026-10-15-at-18-38-40-2.jpg" alt="Citumang Rafting">
             </div>
-            <!-- Foto 5 (Citumang Body Rafting) -->
+            <!-- Foto 5: Citumang Pose Body Rafting -->
             <div class="gallery-item">
-                <img src="https://i.ibb.co.com/hJjx41w4/Whats-App-Image-2026-10-15-at-18-38-40.jpg" alt="Citumang Rafting">
+                <img src="https://i.ibb.co/hjjx41w4/WhatsApp-Image-2026-10-15-at-18-38-40.jpg" alt="Citumang Body Rafting">
             </div>
         </div>
     </section>
