@@ -275,7 +275,7 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Section Foto Bersama - Menampilkan Seluruh Foto Utuh Tanpa Terpotong */
+        /* Section Foto Bersama */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -304,6 +304,17 @@
             display: block;
             border-radius: 10px;
             object-fit: contain;
+        }
+
+        /* Khusus Foto Pantai: Potong langit atas & fokus bagian bawah */
+        .gallery-item.crop-bottom {
+            height: 280px;
+        }
+
+        .gallery-item.crop-bottom img {
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom;
         }
 
         /* Section Penutup */
@@ -471,8 +482,8 @@
             <div class="gallery-item">
                 <img src="https://i.ibb.co.com/8LLS1LbF/Whats-App-Image-2026-10-15-at-18-36-40.jpg" alt="Foto Jas Formal">
             </div>
-            <!-- Foto 2: Kebersamaan Pantai -->
-            <div class="gallery-item">
+            <!-- Foto 2: Kebersamaan Pantai (Di-crop bagian atas langitnya) -->
+            <div class="gallery-item crop-bottom">
                 <img src="https://i.ibb.co.com/8D687wdr/Whats-App-Image-2026-10-15-at-19-04-49.jpg" alt="Foto Pantai Kebersamaan">
             </div>
             <!-- Foto 3: Kostum Malam -->
